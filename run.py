@@ -1,30 +1,9 @@
 import random
 import time
-import pyfiglet
 
-# List of words and hints to be used in the game
-word_list = {
-  "python" : "A type of snake",
-  "zephyr" : "A type of wind",
-  "hangman" : "A word-guessing game",
-  "blunder" : "Another word for a mistake",
-  "ignition" : "The device used to start a car",
-  "devour" : "To eat hungrily or quickly",
-  "fjord" : "A long, deep, narrow body of water that reaches far inland",
-  "paradox" : "A seemingly absurd or contradictory statement",
-  "maple" : "A type of tree",
-  "archipelago" : "A group of islands"
-}
 
-# Randomally select word and its hint
-word, hint = random.choice(list(word_list.items()))
-
-# End of game text display
-lose = pyfiglet.figlet_format("You're dead!\n The word was : " + word)
-win = pyfiglet.figlet_format("Congratulations! You guessed the word : " + word + "\n You live !")
-
-# Game heading & image
-heading = pyfiglet.figlet_format("HANGMAN")
+# Display game heading & image
+heading = ("HANGMAN")
 print(heading)
 print("""
      __________
@@ -41,7 +20,7 @@ print("""
 time.sleep(1)
 
 # Player name entry
-name = input("Enter your name to play: ").capitalize()
+name = input("Enter your name to play: \n").capitalize()
 print(f"{name}....")
 time.sleep(1)
 print("            ...lets play HANGMAN!!!")
@@ -122,6 +101,12 @@ def display_hangman(turns):
     
     return hangman_pics[turns]
 
+# Function to restart game
+def restart_game():
+  play_again = input("Type 'yes' to play again: \n")
+  if play_again == "yes":
+    play_hangman()
+
 # Display the word using hidden letters
 def display_word(word, guessed_letters):
     hidden_word = ""
@@ -143,14 +128,38 @@ def is_word_guessed(word, guessed_letters):
             return False
     return True
 
-# Main game loop
+# Main game function
 def play_hangman():
     turns = 0
     guessed_letters = []
+ 
+  # List of words and hints 
+    word_list = {
+      "python" : "A type of snake",
+      "zephyr" : "A type of wind",
+      "hangman" : "A word-guessing game",
+      "blunder" : "Another word for a mistake",
+      "ignition" : "The device used to start a car",
+      "devour" : "To eat hungrily or quickly",
+      "fjord" : "A long, deep, narrow body of water that reaches far inland",
+      "paradox" : "A seemingly absurd or contradictory statement",
+      "maple" : "A type of tree",
+      "archipelago" : "A group of islands"
+    }
+    
+    # Randomally select word and its hint
+    word, hint = random.choice(list(word_list.items()))
+   
+    # End of game text display
+    lose = ("You're dead!\n The word was : " + word)
+    win = ("Congratulations! You guessed the word : " + 
+    word + "\n You live !")
+   
+    # Main game loop
     while turns < 6:
         print(display_hangman(turns))
         print(display_word(word, guessed_letters))
-        guess = input("Guess a letter: ").lower()
+        guess = input("Guess a letter: \n").lower()
         if guess in guessed_letters:
             print("You have already guessed that letter. Try again.")
             continue
@@ -167,6 +176,7 @@ def play_hangman():
         
             if is_word_guessed(word, guessed_letters):
                 print(win)
+                restart_game()
                 break
         else:
             print("Incorrect!")
@@ -174,6 +184,8 @@ def play_hangman():
             if turns == 6:
                 print(display_hangman(turns))
                 print(lose)
+                restart_game()
                 break
+
 # Start the game
 play_hangman()
