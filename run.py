@@ -1,5 +1,7 @@
+pip install pyfiglet 
 import random
 import time
+import pyfiglet
 
 
 # Display game heading & image
@@ -169,7 +171,7 @@ def play_hangman():
         if len(guess) > 1:
             print("Only one letter at a time. Try again!")
         guessed_letters.append(guess)
-        if turns == 4:
+        if turns == 3:
             print("Hint: " + hint)
         if is_guess_correct(word, guess):
             print("Correct!")
