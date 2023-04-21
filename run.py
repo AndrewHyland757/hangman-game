@@ -1,11 +1,13 @@
-pip install pyfiglet 
 import random
 import time
-import pyfiglet
 
-
-# Display game heading & image
-heading = ("HANGMAN")
+heading = """
+ _   _    _    _   _  ____ __  __    _    _   _ 
+| | | |  / \  | \ | |/ ___|  \/  |  / \  | \ | |
+| |_| | / _ \ |  \| | |  _| |\/| | / _ \ |  \| |
+|  _  |/ ___ \| |\  | |_| | |  | |/ ___ \| |\  |
+|_| |_/_/   \_\_| \_|\____|_|  |_/_/   \_\_| \_|
+"""
 print(heading)
 print("""
      __________
@@ -21,15 +23,16 @@ print("""
 
 time.sleep(1)
 
-# Player name entry
-name = input("Enter your name to play: \n").capitalize()
+name = input("Enter your name to play: ").capitalize()
 print(f"{name}....")
 time.sleep(1)
 print("            ...lets play HANGMAN!!!")
 time.sleep(1)
 
-# Function to show hangman figure bases on number of guesses left
 def display_hangman(turns):
+    """
+    Function to show hangman figure based on number of turns left.
+    """
     hangman_pics = ["""
      __________
       |      |
@@ -103,14 +106,43 @@ def display_hangman(turns):
     
     return hangman_pics[turns]
 
-# Function to restart game
+lose = """ 
+  __   __          _                _                _ _ 
+  \ \ / /__  _   _( )_ __ ___    __| | ___  __ _  __| | |
+   \ V / _ \| | | |/| '__/ _ \  / _` |/ _ \/ _` |/ _` | |
+    | | (_) | |_| | | | |  __/ | (_| |  __/ (_| | (_| |_|
+    |_|\___/ \__,_| |_|  \___|  \__,_|\___|\__,_|\__,_(_)
+                                                                           
+"""
+win = """
+  ____                            _         _       _   _                 _ 
+ / ___|___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_(_) ___  _ __  ___| |
+| |   / _ \| '_ \ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \| '_ \/ __| |
+| |__| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \__ \_|
+ \____\___/|_| |_|\__, |_|  \__,_|\__|\__,_|_|\__,_|\__|_|\___/|_| |_|___(_)
+                  |___/                                                     
+ __   __            _ _             _ 
+ \ \ / /__  _   _  | (_)_   _____  | |
+  \ V / _ \| | | | | | \ \ / / _ \ | |
+   | | (_) | |_| | | | |\ V /  __/ |_|
+   |_|\___/ \__,_| |_|_| \_/ \___| (_)
+                                      
+                                      
+"""
+
 def restart_game():
-  play_again = input("Type 'yes' to play again: \n")
+  """
+  Function to restart game.
+  """
+  play_again = input("Type 'yes' to play again :")
   if play_again == "yes":
     play_hangman()
 
-# Display the word using hidden letters
 def display_word(word, guessed_letters):
+    """
+    Function to display word in hidden form according to the amount of letters.
+    Reveals the guessed letter if its correct. 
+    """
     hidden_word = ""
     for letter in word:
         if letter in guessed_letters:
@@ -119,23 +151,33 @@ def display_word(word, guessed_letters):
             hidden_word += "_ "
     return hidden_word
 
-# Check if the guessed letter is correct
+
 def is_guess_correct(word, guessed_letter):
+    """
+    Checks if the guessed letter is correct
+    """
     return guessed_letter in word
 
-# Check if the word has been guessed completely
+
 def is_word_guessed(word, guessed_letters):
+    """
+    Checks if the word has been guessed completely
+    """
     for letter in word:
         if letter not in guessed_letters:
             return False
     return True
 
-# Main game function
+
 def play_hangman():
+    """
+    Main game function.
+    Sets the number of turns to zero.
+    Selects a random word and its corresponding hint from the dictionary. 
+    This word is processed through a while loop. 
+    """
     turns = 0
     guessed_letters = []
- 
-  # List of words and hints 
     word_list = {
       "python" : "A type of snake",
       "zephyr" : "A type of wind",
@@ -149,19 +191,13 @@ def play_hangman():
       "archipelago" : "A group of islands"
     }
     
-    # Randomally select word and its hint
     word, hint = random.choice(list(word_list.items()))
-   
-    # End of game text display
-    lose = ("You're dead!\n The word was : " + word)
-    win = ("Congratulations! You guessed the word : " + 
-    word + "\n You live !")
-   
-    # Main game loop
+    
     while turns < 6:
         print(display_hangman(turns))
         print(display_word(word, guessed_letters))
-        guess = input("Guess a letter: \n").lower()
+        guess = input("Guess a letter: ").lower()
+        
         if guess in guessed_letters:
             print("You have already guessed that letter. Try again.")
             continue
@@ -171,7 +207,7 @@ def play_hangman():
         if len(guess) > 1:
             print("Only one letter at a time. Try again!")
         guessed_letters.append(guess)
-        if turns == 3:
+        if turns == 4:
             print("Hint: " + hint)
         if is_guess_correct(word, guess):
             print("Correct!")
@@ -181,6 +217,11 @@ def play_hangman():
                 restart_game()
                 break
         else:
+            """
+            Increases the turn value by one for each incorrect answer. 
+            Sets the limit for the amount of turns.
+            Finishes the game when this is reached with the option to restart game. 
+            """
             print("Incorrect!")
             turns += 1
             if turns == 6:
@@ -189,5 +230,5 @@ def play_hangman():
                 restart_game()
                 break
 
-# Start the game
+# Starts the game
 play_hangman()
