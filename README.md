@@ -8,6 +8,8 @@ This classic word-guessing game provides players with a stimulating and enjoyabl
 ![Screenshot of title](assets/images/responsive.jpg)
 
 
+
+# [Link to live site](https://hangman-agame-app.herokuapp.com)
 ## How to play
 
 
