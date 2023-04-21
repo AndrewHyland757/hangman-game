@@ -211,7 +211,8 @@ def play_hangman():
             print("Only one letter at a time. Try again!")
 
         guessed_letters.append(guess)
-        
+        if turns == 3:
+            print("Hint: " + hint)
         if is_guess_correct(word, guess):
             print("Correct!")
         
@@ -228,8 +229,6 @@ def play_hangman():
             """
             print("Incorrect!")
             turns += 1
-            if turns == 3:
-                print("Hint: " + hint)
             if turns == 6:
                 print(display_hangman(turns))
                 print(lose)
