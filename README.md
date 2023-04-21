@@ -1,31 +1,59 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hangman
 
-Welcome AndrewHyland757,
+Hangman is a Python terminal game which runs on Code Institutes mock terminal on Heroku.  
+This classic word-guessing game provides players with a stimulating and enjoyable challenge. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+![Screenshot of homepages]()
 
-## Reminders
+## How to play
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+The player enters their name and the game begins. A word is generated randomally from a list and as the player
+guesses correct letters the word is revealed. Only five incorrect attempts are allowed. When the player 
+has two lives remaining a hint is provided. At the end of the game the player has the option to restart
+and begin again with a new word. 
 
-## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Planning
 
-1. `heroku/python`
-2. `heroku/nodejs`
+### Goals
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+* To create a fun and challenging game that is simple and engaging
+* The game should be challenging enogh to intice the player to continue playing
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+### Logic Flow Chart
 
-Connect your GitHub repository and deploy as normal.
+Before I began to write the code I made a flow chart 
 
-## Constraints
+This helped answer questions like:
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+* How to detremin the eorder of the processes.
+* How to deal with invalid inputs.
+* How to deal with incorrect inputs. 
+![Screenshot of flow chart]()
 
------
-Happy coding!
+
+
+
+
+
+## Features
+
+### Title and name entry
+![Screenshot of title]()
+* This is the first thing displayed. It gives an inviting presence to the game, with a familiar image of the hangman game.
+* The player is asked to enter their name and a personal welcome is displayed. 
+ 
+
+### Main game display
+![Screenshot of ethos section]()
+* The player is presented with the hidden word in whice each correct letter is revealed.
+* The hangman gallows image is gradually presented with each incorrect answer. 
+* A helpful hint is shoen when ther are two turns remaining.  
+
+### Game over display
+![Screenshot of offers section]()
+* This displayed the graphic of the end of game andding a dramatic finale to the game. 
+
+
+
+

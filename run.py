@@ -131,12 +131,12 @@ win = """
 """
 
 def restart_game():
-  """
-  Function to restart game.
-  """
-  play_again = input("Type 'yes' to play again :")
-  if play_again == "yes":
-    play_hangman()
+    """
+    Function to restart game.
+    """
+    play_again = input("Type 'yes' to play again :")
+    if play_again == "yes":
+        play_hangman()
 
 def display_word(word, guessed_letters):
     """
@@ -198,6 +198,9 @@ def play_hangman():
         print(display_word(word, guessed_letters))
         guess = input("Guess a letter: ").lower()
         
+        """
+        If statements to check if input letter is valid
+        """
         if guess in guessed_letters:
             print("You have already guessed that letter. Try again.")
             continue
@@ -206,9 +209,9 @@ def play_hangman():
             continue
         if len(guess) > 1:
             print("Only one letter at a time. Try again!")
+
         guessed_letters.append(guess)
-        if turns == 4:
-            print("Hint: " + hint)
+        
         if is_guess_correct(word, guess):
             print("Correct!")
         
@@ -220,10 +223,13 @@ def play_hangman():
             """
             Increases the turn value by one for each incorrect answer. 
             Sets the limit for the amount of turns.
-            Finishes the game when this is reached with the option to restart game. 
+            Finishes the game when this is reached with the option to 
+            restart game. 
             """
             print("Incorrect!")
             turns += 1
+            if turns == 3:
+                print("Hint: " + hint)
             if turns == 6:
                 print(display_hangman(turns))
                 print(lose)
@@ -232,3 +238,4 @@ def play_hangman():
 
 # Starts the game
 play_hangman()
+
