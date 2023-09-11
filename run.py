@@ -23,21 +23,17 @@ print("""
 
 time.sleep(1)
 
-name =
-
 
 def greeting():
     name = input("Enter your name to play: ").capitalize()
-    if name == "":
-        print("Please enter a valid name")
-        time.sleep(2)
-        greeting()
-    else:
-        print(f"{name}....")
-        time.sleep(1)
-        print("            ...lets play HANGMAN!!!")
-        time.sleep(1)
-        play_hangman()
+    #if name == "":
+    #print("Please enter a valid name")
+    while True:
+            print(f"{name}...."):
+            time.sleep(1)
+            print("            ...lets play HANGMAN!!!")
+            time.sleep(1)
+            play_hangman()
 
 
 def display_hangman(turns):
