@@ -23,9 +23,15 @@ print("""
 
 time.sleep(1)
 
+
 def greeting():
+    """
+    Function to welcome the player to the game after they enter thier name.
+    The play_hangman function is then called to initiate the game.  
+    """
     name = input("Please enter your name to play: ").capitalize()
-    if name == "":
+
+    if not name.isalpha():
         print("Please enter a valid name!")
         time.sleep(1)
         greeting()
@@ -50,8 +56,7 @@ def display_hangman(turns):
       |
       |
       |
-     ===========""",
-        """
+     ===========""", """
      __________
       |      |
       |      O     
@@ -60,8 +65,7 @@ def display_hangman(turns):
       |
       |
       |
-     ===========""",
-        """
+     ===========""", """
      __________
       |      |
       |      O     
@@ -70,8 +74,7 @@ def display_hangman(turns):
       |
       |
       |
-     ===========""",
-        """
+     ===========""", """
      __________
       |      |
       |      O     
@@ -80,8 +83,7 @@ def display_hangman(turns):
       |
       |
       |
-     ===========""",
-        """
+     ===========""", """
      __________
       |      |
       |      O     
@@ -90,8 +92,7 @@ def display_hangman(turns):
       |
       |
       |
-     ===========""",
-        """
+     ===========""", """
      __________
       |      |
       |      O     
@@ -100,8 +101,7 @@ def display_hangman(turns):
       |
       |
       |
-     ===========""",
-        """
+     ===========""", """
      __________
       |      |
       |      O     
@@ -111,7 +111,7 @@ def display_hangman(turns):
       |
       |
      ==========="""]
-   
+ 
     return hangman_pics[turns]
 
 
@@ -145,7 +145,7 @@ def restart_game():
     """
     play_again = input("Do you want to play again? (yes/no): ").lower()
     if play_again == "no":
-            print("Thanks for playing Hangman!")
+        print("Thanks for playing Hangman!")
     elif play_again == "yes":
         play_hangman()
     else:
@@ -208,7 +208,7 @@ def play_hangman():
     
     word, hint = random.choice(list(word_list.items()))
     
-    
+
     while turns < 6:
         print(display_hangman(turns))
         print(display_word(word, guessed_letters))
