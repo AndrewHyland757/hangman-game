@@ -25,7 +25,7 @@ time.sleep(1)
 
 
 def greeting():
-    name = input("Enter your name to play: ").capitalize()
+    name = input("Please enter your name to play: ").capitalize()
     #if name == "":
     #print("Please enter a valid name")
     while True:
