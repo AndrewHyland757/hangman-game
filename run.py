@@ -23,17 +23,18 @@ print("""
 
 time.sleep(1)
 
-
 def greeting():
     name = input("Please enter your name to play: ").capitalize()
-    #if name == "":
-    #print("Please enter a valid name")
-    while True:
-            print(f"{name}...."):
-            time.sleep(1)
-            print("            ...lets play HANGMAN!!!")
-            time.sleep(1)
-            play_hangman()
+    if name == "":
+        print("Please enter a valid name!")
+        time.sleep(1)
+        greeting()
+    else:
+        print(f"{name}....")
+        time.sleep(1)
+        print("            ...lets play HANGMAN!!!")
+        time.sleep(1)
+        play_hangman()
 
 
 def display_hangman(turns):
@@ -142,9 +143,14 @@ def restart_game():
     """
     Function to restart game.
     """
-    play_again = input("Type 'yes' to play again :")
-    if play_again == "yes":
+    play_again = input("Do you want to play again? (yes/no): ").lower()
+    if play_again == "no":
+            print("Thanks for playing Hangman!")
+    elif play_again == "yes":
         play_hangman()
+    else:
+        print("Please type 'yes' or 'no' to play again" )
+        restart_game()
 
 
 def display_word(word, guessed_letters):
