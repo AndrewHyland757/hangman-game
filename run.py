@@ -23,11 +23,22 @@ print("""
 
 time.sleep(1)
 
-name = input("Enter your name to play: ").capitalize()
-print(f"{name}....")
-time.sleep(1)
-print("            ...lets play HANGMAN!!!")
-time.sleep(1)
+name =
+
+
+def greeting():
+    name = input("Enter your name to play: ").capitalize()
+    if name == "":
+        print(Please enter a valid name)
+        time.sleep(2)
+        greeting()
+    else:
+        print(f"{name}....")
+        time.sleep(1)
+        print("            ...lets play HANGMAN!!!")
+        time.sleep(1)
+        play_hangman()
+
 
 def display_hangman(turns):
     """
@@ -103,10 +114,11 @@ def display_hangman(turns):
       |
       |
      ==========="""]
-    
+   
     return hangman_pics[turns]
 
-lose = """ 
+
+lose = """
   __   __          _                _                _ _ 
   \ \ / /__  _   _( )_ __ ___    __| | ___  __ _  __| | |
    \ V / _ \| | | |/| '__/ _ \  / _` |/ _ \/ _` |/ _` | |
@@ -120,7 +132,7 @@ win = """
 | |   / _ \| '_ \ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \| '_ \/ __| |
 | |__| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \__ \_|
  \____\___/|_| |_|\__, |_|  \__,_|\__|\__,_|_|\__,_|\__|_|\___/|_| |_|___(_)
-                  |___/                                                     
+                  |___/                                                    
  __   __            _ _             _ 
  \ \ / /__  _   _  | (_)_   _____  | |
   \ V / _ \| | | | | | \ \ / / _ \ | |
@@ -137,6 +149,7 @@ def restart_game():
     play_again = input("Type 'yes' to play again :")
     if play_again == "yes":
         play_hangman()
+
 
 def display_word(word, guessed_letters):
     """
@@ -193,6 +206,7 @@ def play_hangman():
     
     word, hint = random.choice(list(word_list.items()))
     
+    
     while turns < 6:
         print(display_hangman(turns))
         print(display_word(word, guessed_letters))
@@ -236,5 +250,6 @@ def play_hangman():
                 break
 
 # Starts the game
-play_hangman()
+greeting()
+
 
