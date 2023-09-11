@@ -29,7 +29,7 @@ name =
 def greeting():
     name = input("Enter your name to play: ").capitalize()
     if name == "":
-        print(Please enter a valid name)
+        print("Please enter a valid name")
         time.sleep(2)
         greeting()
     else:
