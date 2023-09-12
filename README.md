@@ -108,7 +108,7 @@ This helped answer questions like:
   This was fixed by adding an "if/else" statement which only validated letters as a possible name.  
 * Validation in "restart_game()" function had to be added as the program broke when invalid input was provided to restart the game.
   The initial function restarted the game if the player typed "yes" and did nothing if "no" was typed. If invalid input was typed the program broke.
-  This was fixed by adding an if/else statement which checked for valid input. It also displayed a thank you message if "no" was typed.
+  This was fixed by adding an if/else statement which checked for valid input. It also displayed a thank you for playing message if "no" was typed.
 * The original version had a list of ten words. This was expanded to fifty to avoid repetitiveness.
 * At the end of the game the word was never revealed. This left a sense of incompleteness and dissatisfaction at the end, especially if you lost.
   So, the code was added to show the word.  
