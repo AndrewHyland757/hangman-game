@@ -33,7 +33,7 @@ and begin again with a new word.
 ### Goals
 
 
-* To create a fun and challenging game that is simple and engaging
+* To create a fun and challenging game that is simple and engaging.
 * The game should be challenging enough to incite the player to continue playing.
 
 
@@ -95,13 +95,34 @@ This helped answer questions like:
 
 ## Testing
 
+* The code was passed through Code Institute's PEP8 Linter https://pep8ci.herokuapp.com/, and PEP8.py was installed using the "pip" command.  
+  Any issues with indentation and line spacing were resolved.
 
-I passed the code through a PEP8 Linter and fixed any errors.
-
+* I used replit.com to run the code and test manually. This involved testing validation of all inputs.
+  This showed up the bugs with the "greeting()" function and the "restart()" function.
+  
 ## Bugs fixed
 
-* Initally I had the word list outside the main game function, which didnt work with the restart function. 
-* I added the hint to make the game more enjoyable. 
+* Initially I had the word list outside the main game function, which didn’t work with the restart function. 
+* I added the "hint" feature to make the game more enjoyable.
+* Validation to the "greeting()" function was added. Originally, the game would proceed even if the player had not entered anything when asked for their name.
+  This was fixed by adding an "if/else" statement which only validated letters as a possible name.  
+* Validation in "restart_game()" function had to be added as the program broke when invalid input was provided to restart the game.
+  The initial function restarted the game if the player typed "yes" and did nothing if "no" was typed. If invalid input was typed the program broke.
+  This was fixed by adding an if/else statement which checked for valid input. It also displayed a thank you message if "no" was typed.
+* The original version had a list of ten words. This was expanded to fifty to avoid repetitiveness.
+* At the end of the game the word was never revealed. This left a sense of incompleteness and dissatisfaction at the end, especially if you lost.
+  So, the code was added to show the word.  
+
+## Future Additions
+
+* In the future I would like to add a function for the player to choose a difficulty setting at the beginning of the game. There would be three word lists depending on the desired 
+  difficulty. This would add an extra dimension to the playing of the game and provide a sense of progress as one moves on to more difficult levels.
+![image](https://github.com/AndrewHyland757/hangman-game/assets/119887032/c914976f-17d0-4d2e-aa28-de1b80efc207)
+
+![image](https://github.com/AndrewHyland757/hangman-game/assets/119887032/6e18257c-bf91-4ad0-8ae2-fb4a9ac3b61f)
+
+
 
 
 ## Deployment
