@@ -117,11 +117,6 @@ This helped answer questions like:
 
 * In the future I would like to add a function for the player to choose a difficulty setting at the beginning of the game. There would be three word lists depending on the desired 
   difficulty. This would add an extra dimension to the playing of the game and provide a sense of progress as one moves on to more difficult levels.
-![image](https://github.com/AndrewHyland757/hangman-game/assets/119887032/c914976f-17d0-4d2e-aa28-de1b80efc207)
-
-![image](https://github.com/AndrewHyland757/hangman-game/assets/119887032/6e18257c-bf91-4ad0-8ae2-fb4a9ac3b61f)
-
-
 
 
 ## Deployment
