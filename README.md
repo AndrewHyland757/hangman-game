@@ -1,8 +1,14 @@
 # Hangman
 
 
-Hangman is a Python terminal game that runs on Code Institute's mock terminal on Heroku.
-This classic word-guessing game provides players with a stimulating and enjoyable challenge.
+Many jobs nowadays, particularly in the world of software development, demand intense focus. Neuroscience has shown that when people have to focus
+for long periods, cognitive resources are used up and performance declines. Luckily, there are ways to replenish! 
+Hangman is a classic game that provides the perfect balance of light directed focus and fun to get those valuable recourses up again. 
+
+This version of hangman is s Python terminal game that runs on Code Institute's mock terminal on Heroku.
+
+![image](https://github.com/AndrewHyland757/hangman-game/assets/119887032/cb91f3e5-b43e-4593-b554-db8c9417d192)
+
 
 
 ![Screenshot of title](assets/images/responsive.jpg)
