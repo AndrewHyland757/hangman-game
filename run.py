@@ -295,3 +295,4 @@ def play_hangman():
 
 # Starts the game
 greeting()
+
