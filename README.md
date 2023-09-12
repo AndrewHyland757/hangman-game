@@ -95,7 +95,7 @@ This helped answer questions like:
 
 ## Testing
 
-* The code was passed through Code Institute's PEP8 Linter https://pep8ci.herokuapp.com/, and PEP8.py was installed using the "pip" command.  
+* The code was passed through Code Institute's PEP8 Linter https://pep8ci.herokuapp.com/, and PEP8 was installed using the "pip" command.  
   Any issues with indentation and line spacing were resolved.
 
 * I used replit.com to run the code and test manually. This involved testing validation of all inputs.
